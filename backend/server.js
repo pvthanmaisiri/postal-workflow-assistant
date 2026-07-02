@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/postal_workflow_db")
+  .connect("mongodb+srv://thanmaisiri:Venusiri@cluster0.a1zinpg.mongodb.net/postal_workflow_db?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB error:", err));
 
