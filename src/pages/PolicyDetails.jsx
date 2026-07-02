@@ -12,8 +12,9 @@ function PolicyDetails() {
 
   const fetchPolicy = async () => {
     try {
-      const res = await axios.get(`http://localhost:5001/api/policies/${id}`);
-      setPolicy(res.data);
+      const res = await axios.get(
+  `https://postal-workflow-assistant.onrender.com/api/policies/${id}`
+);
     } catch (error) {
       console.error(error);
     }

@@ -9,7 +9,9 @@ function Dashboard() {
   }, []);
 
   const fetchPolicies = async () => {
-    const res = await axios.get("http://localhost:5001/api/policies");
+    const res = await axios.get(
+  "https://postal-workflow-assistant.onrender.com/api/policies"
+);
     setPolicies(res.data);
   };
 

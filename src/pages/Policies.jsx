@@ -18,20 +18,24 @@ function Policies() {
   if (!confirmDelete) return;
 
   try {
-    await axios.delete(`http://localhost:5001/api/policies/${id}`);
+    await axios.delete(
+      `https://postal-workflow-assistant.onrender.com/api/policies/${id}`
+    );
 
     setPolicies(
       policies.filter((policy) => policy._id !== id)
     );
+
   } catch (error) {
     console.error(error);
   }
 };
+
   const fetchPolicies = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/api/policies"
-      );
+  "https://postal-workflow-assistant.onrender.com/api/policies"
+);
       setPolicies(res.data);
     } catch (error) {
       console.error(error);

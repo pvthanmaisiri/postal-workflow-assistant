@@ -29,7 +29,10 @@ function AdminAddPolicy() {
       faqs: []
     };
 
-    await axios.post("http://localhost:5001/api/policies", newPolicy);
+    await axios.post(
+  "https://postal-workflow-assistant.onrender.com/api/policies",
+  newPolicy
+);
 
     alert("Policy added successfully!");
     navigate("/policies");

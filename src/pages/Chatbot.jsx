@@ -41,11 +41,9 @@ function Chatbot() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/chat",
-        {
-          question: userQuestion,
-        }
-      );
+  "https://postal-workflow-assistant.onrender.com/api/chat",
+  { question: userQuestion }
+);
 
       setMessages((prev) => [
         ...prev,

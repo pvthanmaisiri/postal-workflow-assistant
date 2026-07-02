@@ -20,8 +20,9 @@ function EditPolicy() {
   }, []);
 
   const fetchPolicy = async () => {
-    const res = await axios.get(`http://localhost:5001/api/policies/${id}`);
-
+    const res = await axios.get(
+  `https://postal-workflow-assistant.onrender.com/api/policies/${id}`
+);
     setForm({
       title: res.data.title,
       category: res.data.category,
@@ -49,9 +50,9 @@ function EditPolicy() {
     };
 
     await axios.put(
-      `http://localhost:5001/api/policies/${id}`,
-      updatedPolicy
-    );
+  `https://postal-workflow-assistant.onrender.com/api/policies/${id}`,
+  updatedPolicy
+);
 
     alert("Policy updated successfully!");
     navigate("/policies");
