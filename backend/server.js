@@ -68,7 +68,7 @@ app.put("/api/policies/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 app.post("/api/chat", async (req, res) => {
   try {
     console.log("Request Body:", req.body);
