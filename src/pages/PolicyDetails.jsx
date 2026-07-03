@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import WorkflowChart from "../components/WorkflowChart";
+
 function PolicyDetails() {
   const { id } = useParams();
   const [policy, setPolicy] = useState(null);
@@ -13,10 +14,12 @@ function PolicyDetails() {
   const fetchPolicy = async () => {
     try {
       const res = await axios.get(
-  `https://postal-workflow-assistant.onrender.com/api/policies/${id}`
-);
+        `https://postal-workflow-assistant.onrender.com/api/policies/${id}`
+      );
+
+      setPolicy(res.data);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching policy:", error);
     }
   };
 
@@ -26,7 +29,9 @@ function PolicyDetails() {
 
   return (
     <div className="details">
-      <Link to="/policies" className="back-link">← Back to Policies</Link>
+      <Link to="/policies" className="back-link">
+        ← Back to Policies
+      </Link>
 
       <h2>{policy.title}</h2>
       <p className="category">{policy.category}</p>
@@ -58,10 +63,11 @@ function PolicyDetails() {
           ))}
         </ol>
       </section>
+
       <section>
-  <h3>Workflow Visualization</h3>
-  <WorkflowChart steps={policy.steps} />
-</section>
+        <h3>Workflow Visualization</h3>
+        <WorkflowChart steps={policy.steps} />
+      </section>
     </div>
   );
 }
